@@ -1,13 +1,17 @@
 #!/bin/bash -x
-echo xxxxxxxxxxWELCOMExxxxTOxxxxFLIPxxxxCOINxxxxSIMULATORxxxxxxxxxxx
+#Declaring Variable
+count=0
 
-#Declaring varriables.
-check=1
-random=$((RANDOM%2))
-#logic to check if head or tail is comming.
-if (( random == check ))
-then
-	echo HEAD
-else
-	echo TAIL
-fi
+#Taking Input From User
+read -p "Enter no. of times want to repeat the loop" number
+while [[ $count -ne $number ]]
+do
+        random=$((RANDOM%2))
+        if [[ $random -eq 1 ]]
+        then
+                echo "Head"
+        else
+                echo "Tail"
+        fi
+        ((count++))
+done
