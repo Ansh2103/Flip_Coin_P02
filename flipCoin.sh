@@ -18,17 +18,6 @@ isHeadWon=0;
 isTailWon=0;
 
 for (( count=0; count<=10; count++ ))
-<<<<<<< HEAD
-do
-	randomCheck1=$(( RANDOM%2 ))
-
-if [[ isHead -eq randomCheck1 ]]
-then
-	echo "Head"
-	isHeadWon=$(( $isHeadWon + 1 ))
-else
-	echo "Tail"
-=======
 do
 	randomCheck1=$(( RANDOM%2 ))
 
@@ -59,15 +48,10 @@ then
 	isHeadWon=$(( $isHeadWon + 1 ))
 else
 	echo "Head"
->>>>>>> UC3_CoinFlip_Limit
 	isTailWon=$(( $isTailWon + 1 ))
 fi
 done
 
-<<<<<<< HEAD
-echo "Total Number Of Head Win is:  $isHeadWon"
-echo "Total Number Of Tail Win is: $isTailWon"
-=======
 echo "Total Number Of Head Win is: $isHeadWon"
 echo "Total Number Of Tail Win is: $isTailWon"
 
@@ -80,4 +64,27 @@ then
 else
 	echo "Head Win"
 fi
->>>>>>> UC3_CoinFlip_Limit
+
+#Usecase4- Extend UC 3 to ensure if its tie then the game
+	   #continues till the difference of minimum
+echo Usecase4
+if [[ isHeadWon -eq isTailWon ]]
+then
+while [[ $WinDifference -ge 2 ]]
+do
+	randomCheck2=$(( RANDOM%2 ))
+
+if [[ IsHead -eq randomCheck2 ]]
+then
+	echo "Head"
+	IsHeadWon=$(( $IsHeadWon + 1 ))
+	WinDifference=$(( $IsHeadWon - $IsTailWon ))
+else
+	echo "Tail"
+	IsTailWon=$(( $IsTailWon + 1 ))
+	WinDifference=$(( $IsTailWon - $IsHeadWon ))
+fi
+done
+else
+	echo "Tie"
+fi
